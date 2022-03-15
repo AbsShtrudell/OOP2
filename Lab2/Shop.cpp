@@ -14,11 +14,11 @@ Shop::~Shop()
 
 void Shop::printProducts(int inPage, int page)
 {
-	if (page * inPage < storage.getEntities().size())
+	//if (page * inPage < storage.getEntities().size())
 	{
-		int firstElem = page * inPage - 1;
+		int firstElem = page == 1? 0: page * inPage - 1;
 		for (int i = firstElem;
-			i < firstElem + inPage > storage.getEntities().size() ? firstElem + inPage : storage.getEntities().size(); i++)
+			i < ((firstElem + inPage > storage.getEntities().size()) ? firstElem + inPage : storage.getEntities().size()); i++)
 			printf(" |%i. %s", i, storage.getEntities().at(i).product.getName().c_str());
 	}
 }

@@ -2,7 +2,8 @@
 
 Storage::Storage()
 {
-	loadStorage("Storage.xml");
+	loadStorage("../Lab2/Storage.xml");
+	entities;
 }
 
 Storage::Storage(vector<Entity> entities)
@@ -29,56 +30,60 @@ Storage::~Storage()
 
 void Storage::loadStorage(string path)
 {
-	XMLDocument doc;
-	doc.LoadFile(path.c_str());
-	Entity* ent;
-	XMLElement* pRootElement = doc.RootElement();
-	
-	if (pRootElement != NULL)
+	XMLDocument* doc = new XMLDocument();
+
+	//doc->LoadFile(path.c_str());
+	if (doc->LoadFile(path.c_str()) == XMLError::XML_SUCCESS)
 	{
-		XMLElement* pEntities = pRootElement->FirstChildElement("Entities");
-		if (pEntities != NULL)
+		Entity* ent;
+		XMLElement* pRootElement = doc->RootElement();
+
+		if (pRootElement != NULL)
 		{
-			XMLElement* pEntity = pEntities->FirstChildElement("Entity");
-			if (pEntity != NULL)
+			XMLElement* pEntities = pRootElement->FirstChildElement("Entities");
+			if (pEntities != NULL)
 			{
-				while (pEntity)
+				XMLElement* pEntity = pEntities->FirstChildElement("Entity");
+				if (pEntity != NULL)
 				{
-					ent = new Entity();
-					XMLElement* pId = pEntity->FirstChildElement("Id");
-					ent->id = stoi(pId->GetText());
-					XMLElement* pStore = pEntity->FirstChildElement("Store");
-					ent->store = stoi(pStore->GetText());
-					XMLElement* pName = pEntity->FirstChildElement("Name");
-					ent->product.setName(pName->GetText());
-					XMLElement* pPrice = pEntity->FirstChildElement("Price");
-					ent->product.setPrice(stof(pPrice->GetText()));
-					XMLElement* pType = pEntity->FirstChildElement("Type");
-					ent->product.setType(Product::stringToType(pType->GetText()));
-					XMLElement* pFeatures = pEntity->FirstChildElement("Features");
-					if (pFeatures != NULL)
+					while (pEntity)
 					{
-						XMLElement* pFeature = pEntity->FirstChildElement("Feature");
-						if (pFeature != NULL)
+						ent = new Entity();
+						XMLElement* pId = pEntity->FirstChildElement("Id");
+						ent->id = stoi(pId->GetText());
+						XMLElement* pStore = pEntity->FirstChildElement("Store");
+						ent->store = stoi(pStore->GetText());
+						XMLElement* pName = pEntity->FirstChildElement("Name");
+						ent->product.setName(pName->GetText());
+						XMLElement* pPrice = pEntity->FirstChildElement("Price");
+						ent->product.setPrice(stof(pPrice->GetText()));
+						XMLElement* pType = pEntity->FirstChildElement("Type");
+						ent->product.setType(Product::stringToType(pType->GetText()));
+						XMLElement* pFeatures = pEntity->FirstChildElement("Features");
+						if (pFeatures != NULL)
 						{
-							while (pFeature)
+							XMLElement* pFeature = pEntity->FirstChildElement("Feature");
+							if (pFeature != NULL)
 							{
-								XMLElement* pFName = pEntity->FirstChildElement("Name");
+								while (pFeature)
+								{
+									XMLElement* pFName = pEntity->FirstChildElement("Name");
 
-								XMLElement* pDescription = pEntity->FirstChildElement("Description");
+									XMLElement* pDescription = pEntity->FirstChildElement("Description");
 
-								ent->product.getEditableCharacteristics().addFeture({ pFName->GetText(), pDescription->GetText() });
-								pFeature = pFeatures->NextSiblingElement("Feature");
+									ent->product.getEditableCharacteristics().addFeture({ pFName->GetText(), pDescription->GetText() });
+									pFeature = pFeatures->NextSiblingElement("Feature");
+								}
 							}
 						}
+						this->addEntity(*ent);
+						pEntity = pEntities->NextSiblingElement("Entity");
+						delete ent;
 					}
-					pEntity = pEntities->NextSiblingElement("Entity");
-					delete ent;
 				}
 			}
 		}
 	}
-
 }
 
 const vector<Entity> Storage::getEntities() const
