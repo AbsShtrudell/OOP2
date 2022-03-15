@@ -139,7 +139,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Product.cpp" />
+    <ClCompile Include="Shop.cpp" />
+    <ClCompile Include="SimpleOrder.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Storage.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Entity.h" />
+    <ClInclude Include="IOrder.h" />
+    <ClInclude Include="Product.h" />
+    <ClInclude Include="Shop.h" />
+    <ClInclude Include="SimpleOrder.h" />
+    <ClInclude Include="Storage.h" />
+    <ClInclude Include="tinyxml2.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Storage.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

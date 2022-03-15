@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<file>
+	<Entities>
+		<Entity>
+			<Id>1</Id>
+			<Store>10</Store>
+			<Name>Iphone</Name>
+			<Price>100000</Price>
+			<Type>Phone</Type>
+			<Features>
+				<Feature>
+					<Name>Processor</Name>
+					<Description>M10 6cores 4.1GHz</Description>
+					<Name>Camera</Name>
+					<Description>10MPxl</Description>
+			</Feature>
+			</Features>
+		</Entity>
+	</Entities>
+</file>
