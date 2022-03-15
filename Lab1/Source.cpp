@@ -42,11 +42,11 @@ void EditFile()
 	for (auto& c : path) c = toupper(c);
 	hud.DrawRect(121, "[^Q]EXITE  [^Z]UNDO  [^X]REDO  OPENED FILE: " + path);
 
-	FileManagerStream fm(path);
-	TextEditor txtedit(fm.Read());
+	SmartPointer<FileManagerStream> fm = new FileManagerStream(path);
+	TextEditor txtedit(fm->Read());
 	cin >> txtedit;
 
-	fm.Write(txtedit.GetOutput());
+	fm->Write(txtedit.GetOutput());
 	cout << "[^Q] CLOSE FILE. ALL DATA SAVED\nPRESS ANY BUTTON TO CONTINUE...";
 	_getch();
 }
