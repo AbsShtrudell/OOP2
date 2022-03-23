@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Lab1\Hud.cpp" />
     <ClCompile Include="Product.cpp" />
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="SimpleOrder.cpp" />
@@ -147,6 +148,7 @@
     <ClCompile Include="tinyxml2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Lab1\Hud.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="IOrder.h" />
     <ClInclude Include="Product.h" />

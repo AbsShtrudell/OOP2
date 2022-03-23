@@ -53,8 +53,12 @@ public:
 	const Type getType() const;
 
 	static Type stringToType(string str);
+	static string typeToString(Type tp);
 
-	Characteristics getEditableCharacteristics() const;
+	void addCharFeature(Characteristics::feature ft);
+	bool removeCharFeatureLast();
+	bool removeCharFeatureIndex(vector<Characteristics::feature>::iterator ft_it);
+	bool editCharFeature(Characteristics::feature ft, size_t index);
 
 private:
 	float price;

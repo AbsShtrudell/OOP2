@@ -1,242 +1,82 @@
 <root>
 	<Entities>
 		<Entity>
-			<Id>1</Id>
+			<Id>1000</Id>
 			<Store>10</Store>
-			<Name>Iphone</Name>
+			<Name>Iphone 10</Name>
 			<Price>100000</Price>
 			<Type>Phone</Type>
 			<Features>
 				<Feature>
 					<Name>Processor</Name>
 					<Description>M10 6cores 4.1GHz</Description>
-					<Name>Camera</Name>
-					<Description>10MPxl</Description>
-			</Feature>
-			</Features>
-		</Entity>
-		<Entity>
-			<Id>1</Id>
-			<Store>10</Store>
-			<Name>Iphone</Name>
-			<Price>100000</Price>
-			<Type>Phone</Type>
-			<Features>
+				</Feature>
 				<Feature>
-					<Name>Processor</Name>
-					<Description>M10 6cores 4.1GHz</Description>
 					<Name>Camera</Name>
-					<Description>10MPxl</Description>
+					<Description>10MP</Description>
 				</Feature>
 			</Features>
 		</Entity>
 		<Entity>
-			<Id>1</Id>
-			<Store>10</Store>
-			<Name>Iphone</Name>
-			<Price>100000</Price>
+			<Id>2051</Id>
+			<Store>20</Store>
+			<Name>Xiaomi Redmi Note 10S</Name>
+			<Price>899</Price>
 			<Type>Phone</Type>
 			<Features>
 				<Feature>
 					<Name>Processor</Name>
-					<Description>M10 6cores 4.1GHz</Description>
+					<Description>Mediatek Helio G95 2.1GHz</Description>
+				</Feature>
+				<Feature>
 					<Name>Camera</Name>
-					<Description>10MPxl</Description>
+					<Description>64MP</Description>
 				</Feature>
 			</Features>
 		</Entity>
 		<Entity>
-			<Id>1</Id>
-			<Store>10</Store>
-			<Name>Iphone</Name>
-			<Price>100000</Price>
-			<Type>Phone</Type>
+			<Id>2151</Id>
+			<Store>5</Store>
+			<Name>Samsung QE55Q60ABU</Name>
+			<Price>3149</Price>
+			<Type>TV</Type>
 			<Features>
 				<Feature>
+					<Name>Resolution</Name>
+					<Description>3840x2160 (4K UHD)</Description>
+				</Feature>
+				<Feature>
+					<Name>Smart TV</Name>
+					<Description>Yes</Description>
+				</Feature>
+				<Feature>
 					<Name>Processor</Name>
-					<Description>M10 6cores 4.1GHz</Description>
-					<Name>Camera</Name>
-					<Description>10MPxl</Description>
+					<Description>4 cores</Description>
 				</Feature>
 			</Features>
 		</Entity>
 		<Entity>
-			<Id>1</Id>
-			<Store>10</Store>
-			<Name>Iphone</Name>
-			<Price>100000</Price>
-			<Type>Phone</Type>
+			<Id>1984</Id>
+			<Store>15</Store>
+			<Name>Sennheiser CX 80S</Name>
+			<Price>59</Price>
+			<Type>Headphones</Type>
 			<Features>
 				<Feature>
-					<Name>Processor</Name>
-					<Description>M10 6cores 4.1GHz</Description>
-					<Name>Camera</Name>
-					<Description>10MPxl</Description>
+					<Name>Frequency response(Microphone)</Name>
+					<Description>100 - 10,000 Hz</Description>
 				</Feature>
-			</Features>
-		</Entity>
-		<Entity>
-			<Id>1</Id>
-			<Store>10</Store>
-			<Name>Iphone</Name>
-			<Price>100000</Price>
-			<Type>Phone</Type>
-			<Features>
 				<Feature>
-					<Name>Processor</Name>
-					<Description>M10 6cores 4.1GHz</Description>
-					<Name>Camera</Name>
-					<Description>10MPxl</Description>
+					<Name>Jack plug</Name>
+					<Description>3.5 mm, angled</Description>
 				</Feature>
-			</Features>
-		</Entity>
-		<Entity>
-			<Id>1</Id>
-			<Store>10</Store>
-			<Name>Iphone</Name>
-			<Price>100000</Price>
-			<Type>Phone</Type>
-			<Features>
 				<Feature>
-					<Name>Processor</Name>
-					<Description>M10 6cores 4.1GHz</Description>
-					<Name>Camera</Name>
-					<Description>10MPxl</Description>
+					<Name>Cable length</Name>
+					<Description>1.2 m, symmetric length</Description>
 				</Feature>
-			</Features>
-		</Entity>
-		<Entity>
-			<Id>1</Id>
-			<Store>10</Store>
-			<Name>Iphone</Name>
-			<Price>100000</Price>
-			<Type>Phone</Type>
-			<Features>
 				<Feature>
-					<Name>Processor</Name>
-					<Description>M10 6cores 4.1GHz</Description>
-					<Name>Camera</Name>
-					<Description>10MPxl</Description>
-				</Feature>
-			</Features>
-		</Entity>
-		<Entity>
-			<Id>1</Id>
-			<Store>10</Store>
-			<Name>Iphone</Name>
-			<Price>100000</Price>
-			<Type>Phone</Type>
-			<Features>
-				<Feature>
-					<Name>Processor</Name>
-					<Description>M10 6cores 4.1GHz</Description>
-					<Name>Camera</Name>
-					<Description>10MPxl</Description>
-				</Feature>
-			</Features>
-		</Entity>
-		<Entity>
-			<Id>1</Id>
-			<Store>10</Store>
-			<Name>Iphone</Name>
-			<Price>100000</Price>
-			<Type>Phone</Type>
-			<Features>
-				<Feature>
-					<Name>Processor</Name>
-					<Description>M10 6cores 4.1GHz</Description>
-					<Name>Camera</Name>
-					<Description>10MPxl</Description>
-				</Feature>
-			</Features>
-		</Entity>
-		<Entity>
-			<Id>1</Id>
-			<Store>10</Store>
-			<Name>Iphone</Name>
-			<Price>100000</Price>
-			<Type>Phone</Type>
-			<Features>
-				<Feature>
-					<Name>Processor</Name>
-					<Description>M10 6cores 4.1GHz</Description>
-					<Name>Camera</Name>
-					<Description>10MPxl</Description>
-				</Feature>
-			</Features>
-		</Entity>
-		<Entity>
-			<Id>1</Id>
-			<Store>10</Store>
-			<Name>Iphone</Name>
-			<Price>100000</Price>
-			<Type>Phone</Type>
-			<Features>
-				<Feature>
-					<Name>Processor</Name>
-					<Description>M10 6cores 4.1GHz</Description>
-					<Name>Camera</Name>
-					<Description>10MPxl</Description>
-				</Feature>
-			</Features>
-		</Entity>
-		<Entity>
-			<Id>1</Id>
-			<Store>10</Store>
-			<Name>Iphone</Name>
-			<Price>100000</Price>
-			<Type>Phone</Type>
-			<Features>
-				<Feature>
-					<Name>Processor</Name>
-					<Description>M10 6cores 4.1GHz</Description>
-					<Name>Camera</Name>
-					<Description>10MPxl</Description>
-				</Feature>
-			</Features>
-		</Entity>
-		<Entity>
-			<Id>1</Id>
-			<Store>10</Store>
-			<Name>Iphone</Name>
-			<Price>100000</Price>
-			<Type>Phone</Type>
-			<Features>
-				<Feature>
-					<Name>Processor</Name>
-					<Description>M10 6cores 4.1GHz</Description>
-					<Name>Camera</Name>
-					<Description>10MPxl</Description>
-				</Feature>
-			</Features>
-		</Entity>
-		<Entity>
-			<Id>1</Id>
-			<Store>10</Store>
-			<Name>Iphone</Name>
-			<Price>100000</Price>
-			<Type>Phone</Type>
-			<Features>
-				<Feature>
-					<Name>Processor</Name>
-					<Description>M10 6cores 4.1GHz</Description>
-					<Name>Camera</Name>
-					<Description>10MPxl</Description>
-				</Feature>
-			</Features>
-		</Entity>
-		<Entity>
-			<Id>1</Id>
-			<Store>10</Store>
-			<Name>Iphone</Name>
-			<Price>100000</Price>
-			<Type>Phone</Type>
-			<Features>
-				<Feature>
-					<Name>Processor</Name>
-					<Description>M10 6cores 4.1GHz</Description>
-					<Name>Camera</Name>
-					<Description>10MPxl</Description>
+					<Name>Frequency response</Name>
+					<Description>17-20,000 Hz (-10 dB)</Description>
 				</Feature>
 			</Features>
 		</Entity>

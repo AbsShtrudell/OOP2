@@ -1,4 +1,6 @@
 #pragma once
+#include <iomanip>
+#include "../Lab1/Hud.h"
 #include "Storage.h"
 #include "SimpleOrder.h"
 
@@ -9,15 +11,16 @@ public:
 	Shop(const Shop& shop);
 	~Shop();
 
-	void printProducts(int inPage, int page);
-	void printCart();
+	int* printProducts(int inPage, int page, bool extendView);
+	int* printCart(int inPage, int page, bool extendView);
 	void addToCart(int id);
 	void removeFromCart(int id);
-	void processOrder(SimpleOrder order);
+	void processOrder(IOrder* order);
+
+	const vector<Entity> getCart() const;
 
 private:
 	vector<Entity> cart;
-	SimpleOrder order;
 	Storage storage;
 };
 

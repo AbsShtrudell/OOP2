@@ -12,6 +12,7 @@ public:
 	Hud();
 	~Hud();
 
-	void DrawRect(int color, string str);
+	static void DrawRect(int color, string str);
+	static void fillstr(HANDLE Console);
 };
 

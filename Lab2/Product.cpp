@@ -134,10 +134,42 @@ Product::Type Product::stringToType(string str)
 	else tp = Type::None;
 
 
-	return Type();
+	return tp;
 }
 
-Product::Characteristics Product::getEditableCharacteristics() const
+string Product::typeToString(Product::Type tp)
 {
-	return ch;
+	string str;
+	if (tp == Type::Phone) str = "Phone";
+	else if (tp == Type::TV) str = "TV";
+	else if (tp == Type::Headphones) str = "Headphones";
+	else if (tp == Type::Monitor) str = "Monitor";
+	else if (tp == Type::Video_card) str = "Video_card";
+	else if (tp == Type::Mother_board) str = "Mother_board";
+	else if (tp == Type::Vacuum_cleaner) str = "Vacuum_cleaner";
+	else if (tp == Type::Hairdryer) str = "Hairdryer";
+	else str = "None";
+
+
+	return str;
+}
+
+void Product::addCharFeature(Characteristics::feature ft)
+{
+	ch.addFeture(ft);
+}
+
+bool Product::removeCharFeatureLast()
+{
+	return ch.removeFeatureLast();
+}
+
+bool Product::removeCharFeatureIndex(vector<Characteristics::feature>::iterator ft_it)
+{
+	return ch.removeFeatureIndex(ft_it);
+}
+
+bool Product::editCharFeature(Characteristics::feature ft, size_t index)
+{
+	return ch.editFeature(ft, index);
 }

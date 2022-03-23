@@ -12,20 +12,73 @@ Shop::~Shop()
 {
 }
 
-void Shop::printProducts(int inPage, int page)
+int* Shop::printProducts(int inPage, int page, bool extendView)
 {
-	//if (page * inPage < storage.getEntities().size())
+	HANDLE Console = GetStdHandle(STD_OUTPUT_HANDLE);
+	int* output = new int[inPage];
+	int firstElem = (page - 1) * inPage;
+	for (int i = firstElem;
+		i < ((firstElem + inPage > storage.getEntities().size()) ? storage.getEntities().size() : firstElem + inPage);
+		i++)
 	{
-		int firstElem = page == 1? 0: page * inPage - 1;
-		for (int i = firstElem;
-			i < ((firstElem + inPage > storage.getEntities().size()) ? firstElem + inPage : storage.getEntities().size()); i++)
-			printf(" |%i. %s", i, storage.getEntities().at(i).product.getName().c_str());
+		output[i - firstElem] = storage.getEntities().at(i).id;
+		if(extendView) SetConsoleTextAttribute(Console, 121);
+		printf("%i. %-25s    %-22s  %10.2f$", i + 1, storage.getEntities().at(i).product.getName().c_str(),
+											Product::typeToString(storage.getEntities().at(i).product.getType()).c_str(),
+											storage.getEntities().at(i).product.getPrice());
+		if (extendView) SetConsoleTextAttribute(Console, 7);
+		cout << endl;
+		if (extendView)
+		{
+			for (auto ft : storage.getEntities().at(i).product.getCharacteristics().getFeaturesList())
+			{
+				cout << "|"<< setw(31) << left << ft.name << setw(40) << ft.description << endl;
+			}
+		}
+
 	}
+	return output;
+}
+
+int* Shop::printCart(int inPage, int page, bool extendView)
+{
+	HANDLE Console = GetStdHandle(STD_OUTPUT_HANDLE);
+	int* output = new int[inPage];
+	int firstElem = (page - 1) * inPage;
+	for (int i = firstElem;
+		i < ((firstElem + inPage > getCart().size()) ? getCart().size() : firstElem + inPage);
+		i++)
+	{
+		output[i - firstElem] = getCart().at(i).id;
+		if (extendView) SetConsoleTextAttribute(Console, 121);
+		printf("%i. %-25s    %-22s  %10.2f$", i + 1, getCart().at(i).product.getName().c_str(),
+											Product::typeToString(getCart().at(i).product.getType()).c_str(),
+											getCart().at(i).product.getPrice());
+		if (extendView) SetConsoleTextAttribute(Console, 7);
+		cout << endl;
+		if (extendView)
+		{
+			for (auto ft : getCart().at(i).product.getCharacteristics().getFeaturesList())
+			{
+				cout << "|" << setw(31) << left << ft.name << setw(40) << ft.description << endl;
+			}
+		}
+	}
+
+	return output;
 }
 
 void Shop::addToCart(int id)
 {
-	cart.push_back(storage.findEnity(id));
+	try
+	{
+		Entity ent = storage.findEnityId(id);
+		cart.push_back(ent);
+	}
+	catch (exception ex)
+	{
+		cout << ex.what();
+	}
 }
 
 void Shop::removeFromCart(int id)
@@ -38,7 +91,12 @@ void Shop::removeFromCart(int id)
 		}
 }
 
-void Shop::processOrder(SimpleOrder orderorder)
+void Shop::processOrder(IOrder* order)
 {
+}
+
+const vector<Entity> Shop::getCart() const
+{
+	return cart;
 }
 

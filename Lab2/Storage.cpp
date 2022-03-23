@@ -2,8 +2,14 @@
 
 Storage::Storage()
 {
-	loadStorage("../Lab2/Storage.xml");
-	entities;
+	try
+	{
+		loadStorage("../Lab2/Storage.xml");
+	}
+	catch (const exception& ex)
+	{
+		ex.what();
+	}
 }
 
 Storage::Storage(vector<Entity> entities)
@@ -32,7 +38,6 @@ void Storage::loadStorage(string path)
 {
 	XMLDocument* doc = new XMLDocument();
 
-	//doc->LoadFile(path.c_str());
 	if (doc->LoadFile(path.c_str()) == XMLError::XML_SUCCESS)
 	{
 		Entity* ent;
@@ -46,7 +51,7 @@ void Storage::loadStorage(string path)
 				XMLElement* pEntity = pEntities->FirstChildElement("Entity");
 				if (pEntity != NULL)
 				{
-					while (pEntity)
+					while (pEntity != NULL)
 					{
 						ent = new Entity();
 						XMLElement* pId = pEntity->FirstChildElement("Id");
@@ -62,28 +67,35 @@ void Storage::loadStorage(string path)
 						XMLElement* pFeatures = pEntity->FirstChildElement("Features");
 						if (pFeatures != NULL)
 						{
-							XMLElement* pFeature = pEntity->FirstChildElement("Feature");
+							XMLElement* pFeature = pFeatures->FirstChildElement("Feature");
 							if (pFeature != NULL)
 							{
-								while (pFeature)
+								while (pFeature != NULL)
 								{
-									XMLElement* pFName = pEntity->FirstChildElement("Name");
+									XMLElement* pFName = pFeature->FirstChildElement("Name");
 
-									XMLElement* pDescription = pEntity->FirstChildElement("Description");
+									if (pName != NULL)
+									{
+										XMLElement* pDescription = pFeature->FirstChildElement("Description");
 
-									ent->product.getEditableCharacteristics().addFeture({ pFName->GetText(), pDescription->GetText() });
-									pFeature = pFeatures->NextSiblingElement("Feature");
+										if (pDescription != NULL)
+										{
+											ent->product.addCharFeature({ pFName->GetText(), pDescription->GetText() });
+										}
+									}
+									pFeature = pFeature->NextSiblingElement("Feature");
 								}
 							}
 						}
 						this->addEntity(*ent);
-						pEntity = pEntities->NextSiblingElement("Entity");
+						pEntity = pEntity->NextSiblingElement("Entity");
 						delete ent;
 					}
 				}
 			}
 		}
 	}
+	else throw(exception("WARNING!!! CAN'T LOAD STORAGE"));
 }
 
 const vector<Entity> Storage::getEntities() const
@@ -128,11 +140,26 @@ bool Storage::isEntityAvaliable(size_t index) const
 	else return false;
 }
 
-Entity Storage::findEnity(int id)
+Entity Storage::findEnityId(int id) const
 {
 	for (auto entity : entities)
 		if (entity.id == id) return entity;
+	throw(exception("CAN'T FIND ENTITY WITH THIS ID"));
 }
+
+Entity Storage::findEnityName(string name) const
+{
+	for (auto entity : entities)
+		if (entity.product.getName() == name) return entity;
+	throw(exception("CAN'T FIND ENTITY WITH THIS NAME"));
+}
+
+//void Storage::removeEntityStore(int id)
+//{
+//	Entity* ent = findEnityId(id);
+//	if (ent->store >= 1) ent->store--;
+//
+//}
 
 void Storage::setEntities(vector<Entity> ents)
 {
