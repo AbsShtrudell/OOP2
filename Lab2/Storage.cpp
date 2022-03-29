@@ -116,6 +116,17 @@ bool Storage::removeEntityLast()
 	return true;
 }
 
+bool Storage::removeEntityId(int id)
+{
+	for (int i = 0; i < entities.size();i++)
+		if (entities.at(i).id == id)
+		{
+			entities.erase(entities.begin() + i);
+			return true;
+		}
+	return false;
+}
+
 bool Storage::removeEntityIndex(vector<Entity>::iterator it)
 {
 	if (entities.size() == 0 || it > entities.end()) return false;
@@ -145,6 +156,13 @@ Entity Storage::findEnityId(int id) const
 	for (auto entity : entities)
 		if (entity.id == id) return entity;
 	throw(exception("CAN'T FIND ENTITY WITH THIS ID"));
+}
+
+int Storage::findEnityIndex(int id) const
+{
+	for (int i = 0; i < entities.size(); i++)
+		if (entities.at(i).id == id) return i;
+	return -1;
 }
 
 Entity Storage::findEnityName(string name) const

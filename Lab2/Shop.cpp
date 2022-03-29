@@ -113,3 +113,9 @@ float Shop::countPrice()
 	}
 	return price;
 }
+
+Storage& Shop::getStorage()
+{
+	return storage;
+}
+
