@@ -35,5 +35,9 @@ private:
 	vector<Entity> entities;
 };
 
-class StorageException : exception {};
+class StorageException : exception 
+{
+public:
+	StorageException(char* str) : exception(str){}
+};
 

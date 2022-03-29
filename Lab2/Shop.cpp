@@ -91,6 +91,11 @@ void Shop::removeFromCart(int id)
 		}
 }
 
+void Shop::clearCart()
+{
+	cart.clear();
+}
+
 void Shop::processOrder(IOrder* order)
 {
 }
@@ -99,4 +104,12 @@ const vector<Entity> Shop::getCart() const
 {
 	return cart;
 }
-
+float Shop::countPrice()
+{
+	float price = 0.f;
+	for (size_t i = 0; i < getCart().size(); i++)
+	{
+		price += getCart().at(i).product.getPrice();
+	}
+	return price;
+}

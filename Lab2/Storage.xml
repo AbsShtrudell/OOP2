@@ -4,7 +4,7 @@
 			<Id>1000</Id>
 			<Store>10</Store>
 			<Name>Iphone 10</Name>
-			<Price>100000</Price>
+			<Price>1299</Price>
 			<Type>Phone</Type>
 			<Features>
 				<Feature>
@@ -77,6 +77,57 @@
 				<Feature>
 					<Name>Frequency response</Name>
 					<Description>17-20,000 Hz (-10 dB)</Description>
+				</Feature>
+			</Features>
+		</Entity>
+		<Entity>
+			<Id>7591</Id>
+			<Store>10</Store>
+			<Name>Xiaomi Mi Monitor</Name>
+			<Price>649</Price>
+			<Type>Monitor</Type>
+			<Features>
+				<Feature>
+					<Name>Resolution</Name>
+					<Description>1920x1080</Description>
+				</Feature>
+				<Feature>
+					<Name>Matrix</Name>
+					<Description>IPS</Description>
+				</Feature>
+			</Features>
+		</Entity>
+		<Entity>
+			<Id>4926</Id>
+			<Store>10</Store>
+			<Name>Samsung F24T354FHI</Name>
+			<Price>799</Price>
+			<Type>Monitor</Type>
+			<Features>
+				<Feature>
+					<Name>Resolution</Name>
+					<Description>1920x1080</Description>
+				</Feature>
+				<Feature>
+					<Name>Matrix</Name>
+					<Description>IPS</Description>
+				</Feature>
+			</Features>
+		</Entity>
+		<Entity>
+			<Id>4926</Id>
+			<Store>10</Store>
+			<Name>Samsung F24T354FHI</Name>
+			<Price>799</Price>
+			<Type>Monitor</Type>
+			<Features>
+				<Feature>
+					<Name>Resolution</Name>
+					<Description>1920x1080</Description>
+				</Feature>
+				<Feature>
+					<Name>Matrix</Name>
+					<Description>IPS</Description>
 				</Feature>
 			</Features>
 		</Entity>

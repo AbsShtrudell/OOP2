@@ -15,8 +15,9 @@ public:
 	int* printCart(int inPage, int page, bool extendView);
 	void addToCart(int id);
 	void removeFromCart(int id);
+	void clearCart();
 	void processOrder(IOrder* order);
-
+	float countPrice();
 	const vector<Entity> getCart() const;
 
 private:

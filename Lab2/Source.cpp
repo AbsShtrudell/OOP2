@@ -5,7 +5,7 @@
 
 void showCatalog(Shop& shop);
 void showCart(Shop& shop);
-void Order();
+void Order(Shop& shop);
 
 int main()
 {
@@ -117,7 +117,8 @@ void showCart(Shop& shop)
 			extendview = !extendview;
 			break;
 		case 'o': case 'O':
-
+			Order(shop);
+			break;
 		case '0':
 			shop.removeFromCart(ids[9]);
 			break;
@@ -152,7 +153,14 @@ void showCart(Shop& shop)
 	}
 }
 
-void Order()
+void Order(Shop& shop)
 {
+	system("CLS");
+	cout << "ORDER HAS BEEN PROCESSED! THANK YOU FOR CHOSING US!\n";
+	shop.printCart(10, 1, false);
+	shop.printCart(10, 2, false);
 
+	cout << endl << "Price: " << shop.countPrice() << '$';
+	_getch();
+	shop.clearCart();
 }
