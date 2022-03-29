@@ -100,3 +100,8 @@ const vector<Entity> Shop::getCart() const
 	return cart;
 }
 
+Storage& Shop::getStorage()
+{
+	return storage;
+}
+

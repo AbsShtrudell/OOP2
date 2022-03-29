@@ -18,6 +18,7 @@ public:
 	void processOrder(IOrder* order);
 
 	const vector<Entity> getCart() const;
+	Storage& getStorage();
 
 private:
 	vector<Entity> cart;

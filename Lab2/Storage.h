@@ -23,11 +23,13 @@ public:
 	void setEntities(vector<Entity> ents);
 	void addEntity(Entity ent);
 	bool removeEntityLast();
+	bool removeEntityId(int id);
 	bool removeEntityIndex(vector<Entity>::iterator it);
 	bool editEntity(Entity ent, size_t index);
 	bool isEntityAvaliable(size_t index) const;
 	Entity findEnityId(int id) const;
 	Entity findEnityName(string name) const;
+	int findEnityIndex(int id) const;
 
 	//void removeEntityStore(int id);
 
