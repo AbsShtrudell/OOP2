@@ -8,7 +8,9 @@ Storage::Storage()
 	}
 	catch (const exception& ex)
 	{
-		ex.what();
+		cout << ex.what()<< endl;
+		system("pause");
+		exit(0);
 	}
 }
 
@@ -143,14 +145,6 @@ bool Storage::editEntity(Entity ent, size_t index)
 	return true;
 }
 
-bool Storage::isEntityAvaliable(size_t index) const
-{
-	if (entities.size() == 0 || index > entities.size()) return false;
-
-	if (entities.at(index).store > 0) return true;
-	else return false;
-}
-
 Entity Storage::findEnityId(int id) const
 {
 	for (auto entity : entities)
@@ -158,11 +152,11 @@ Entity Storage::findEnityId(int id) const
 	throw(exception("CAN'T FIND ENTITY WITH THIS ID"));
 }
 
-int Storage::findEnityIndex(int id) const
+int Storage::findEnitysIndex(int id) const
 {
 	for (int i = 0; i < entities.size(); i++)
 		if (entities.at(i).id == id) return i;
-	return -1;
+	throw(exception("CAN'T FIND ENTITY WITH THIS ID"));
 }
 
 Entity Storage::findEnityName(string name) const
@@ -171,13 +165,6 @@ Entity Storage::findEnityName(string name) const
 		if (entity.product.getName() == name) return entity;
 	throw(exception("CAN'T FIND ENTITY WITH THIS NAME"));
 }
-
-//void Storage::removeEntityStore(int id)
-//{
-//	Entity* ent = findEnityId(id);
-//	if (ent->store >= 1) ent->store--;
-//
-//}
 
 void Storage::setEntities(vector<Entity> ents)
 {

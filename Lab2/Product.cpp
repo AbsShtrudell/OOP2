@@ -109,7 +109,7 @@ const string Product::getName() const
 	return name;
 }
 
-const Product::Characteristics Product::getCharacteristics() const
+ const Product::Characteristics Product::getCharacteristics() const
 {
 	return ch;
 }

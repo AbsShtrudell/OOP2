@@ -77,7 +77,8 @@ void Shop::addToCart(int id)
 	}
 	catch (exception ex)
 	{
-		cout << ex.what();
+		cout << ex.what() << endl;
+		system("pause");
 	}
 }
 
@@ -104,6 +105,59 @@ const vector<Entity> Shop::getCart() const
 {
 	return cart;
 }
+void Shop::removeEntityFromStorage(int id)
+{
+	storage.removeEntityId(id);
+}
+
+void Shop::editEntityInStorage(Entity ent, int id)
+{
+	try
+	{
+		int index = storage.findEnitysIndex(id);
+		storage.editEntity(ent, index);
+	}
+	catch (exception ex)
+	{
+		cout << ex.what() << endl;
+		system("pause");
+	}
+}
+
+Entity Shop::findEntityInStorage(int id) const
+{
+	try
+	{
+		return storage.findEnityId(id);
+	}
+	catch (exception ex)
+	{
+		throw(exception(ex.what()));
+	}
+}
+
+void Shop::addNewEntity(Entity ent)
+{
+	storage.addEntity(ent);
+}
+
+int Shop::countPagesInCart(int inPageItems) const
+{
+	return countPages(cart, inPageItems);
+}
+
+int Shop::countPagesInStorage(int inPageItems) const
+{
+	return countPages(storage.getEntities(), inPageItems);
+}
+
+int Shop::countPages(vector<Entity> ents, int inPageItems) const
+{
+	if (!(ents.size() % inPageItems)) return ents.size() / inPageItems;
+	else return ents.size() / inPageItems + 1;
+	return 0;
+}
+
 float Shop::countPrice()
 {
 	float price = 0.f;
@@ -113,9 +167,3 @@ float Shop::countPrice()
 	}
 	return price;
 }
-
-Storage& Shop::getStorage()
-{
-	return storage;
-}
-

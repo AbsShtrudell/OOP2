@@ -1,6 +1,7 @@
 #pragma once
 #include <iomanip>
-#include "../Lab1/Hud.h"
+#include <Windows.h>
+#include <iostream>
 #include "Storage.h"
 #include "SimpleOrder.h"
 
@@ -19,9 +20,17 @@ public:
 	void processOrder(IOrder* order);
 	float countPrice();
 	const vector<Entity> getCart() const;
-	Storage& getStorage();
+	void removeEntityFromStorage(int id);
+	void editEntityInStorage(Entity ent, int id);
+	Entity findEntityInStorage(int id) const;
+	void addNewEntity(Entity ent);
+
+	int countPagesInCart(int inPageItems) const;
+	int countPagesInStorage(int inPageItems) const;
 
 private:
+	int countPages(vector<Entity> ents, int inPageItems) const;
+
 	vector<Entity> cart;
 	Storage storage;
 };

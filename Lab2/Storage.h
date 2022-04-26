@@ -26,20 +26,18 @@ public:
 	bool removeEntityId(int id);
 	bool removeEntityIndex(vector<Entity>::iterator it);
 	bool editEntity(Entity ent, size_t index);
-	bool isEntityAvaliable(size_t index) const;
 	Entity findEnityId(int id) const;
 	Entity findEnityName(string name) const;
-	int findEnityIndex(int id) const;
-
-	//void removeEntityStore(int id);
+	int findEnitysIndex(int id) const;
 
 private:
 	vector<Entity> entities;
 };
 
-class StorageException : exception 
+class StorageException : public exception 
 {
 public:
 	StorageException(char* str) : exception(str){}
+private:
 };
 

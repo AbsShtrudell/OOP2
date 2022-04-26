@@ -8,7 +8,18 @@ using namespace std;
 class Product
 {
 public:
-	enum class Type;
+	enum class Type
+	{
+		None,
+		Phone,
+		TV,
+		Headphones,
+		Monitor,
+		Video_card,
+		Mother_board,
+		Vacuum_cleaner,
+		Hairdryer
+	};
 
 	class Characteristics
 	{
@@ -65,19 +76,5 @@ private:
 	string name;
 	Characteristics ch;
 	Type type;
-
-public:
-	enum class Type
-	{
-		None,
-		Phone,
-		TV,
-		Headphones,
-		Monitor,
-		Video_card,
-		Mother_board,
-		Vacuum_cleaner,
-		Hairdryer
-	};
 };
 
