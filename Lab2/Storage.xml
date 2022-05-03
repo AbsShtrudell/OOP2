@@ -1,118 +1,118 @@
 <root>
-	<Entities>
-		<Entity>
-			<Id>1000</Id>
-			<Store>10</Store>
-			<Name>Iphone 10</Name>
-			<Price>1299</Price>
-			<Type>Phone</Type>
-			<Features>
-				<Feature>
-					<Name>Processor</Name>
-					<Description>M10 6cores 4.1GHz</Description>
-				</Feature>
-				<Feature>
-					<Name>Camera</Name>
-					<Description>10MP</Description>
-				</Feature>
-			</Features>
-		</Entity>
-		<Entity>
-			<Id>2051</Id>
-			<Store>20</Store>
-			<Name>Xiaomi Redmi Note 10S</Name>
-			<Price>899</Price>
-			<Type>Phone</Type>
-			<Features>
-				<Feature>
-					<Name>Processor</Name>
-					<Description>Mediatek Helio G95 2.1GHz</Description>
-				</Feature>
-				<Feature>
-					<Name>Camera</Name>
-					<Description>64MP</Description>
-				</Feature>
-			</Features>
-		</Entity>
-		<Entity>
-			<Id>2151</Id>
-			<Store>5</Store>
-			<Name>Samsung QE55Q60ABU</Name>
-			<Price>3149</Price>
-			<Type>TV</Type>
-			<Features>
-				<Feature>
-					<Name>Resolution</Name>
-					<Description>3840x2160 (4K UHD)</Description>
-				</Feature>
-				<Feature>
-					<Name>Smart TV</Name>
-					<Description>Yes</Description>
-				</Feature>
-				<Feature>
-					<Name>Processor</Name>
-					<Description>4 cores</Description>
-				</Feature>
-			</Features>
-		</Entity>
-		<Entity>
-			<Id>1984</Id>
-			<Store>15</Store>
-			<Name>Sennheiser CX 80S</Name>
-			<Price>59</Price>
-			<Type>Headphones</Type>
-			<Features>
-				<Feature>
-					<Name>Frequency response(Microphone)</Name>
-					<Description>100 - 10,000 Hz</Description>
-				</Feature>
-				<Feature>
-					<Name>Jack plug</Name>
-					<Description>3.5 mm, angled</Description>
-				</Feature>
-				<Feature>
-					<Name>Cable length</Name>
-					<Description>1.2 m, symmetric length</Description>
-				</Feature>
-				<Feature>
-					<Name>Frequency response</Name>
-					<Description>17-20,000 Hz (-10 dB)</Description>
-				</Feature>
-			</Features>
-		</Entity>
-		<Entity>
-			<Id>7591</Id>
-			<Store>10</Store>
-			<Name>Xiaomi Mi Monitor</Name>
-			<Price>649</Price>
-			<Type>Monitor</Type>
-			<Features>
-				<Feature>
-					<Name>Resolution</Name>
-					<Description>1920x1080</Description>
-				</Feature>
-				<Feature>
-					<Name>Matrix</Name>
-					<Description>IPS</Description>
-				</Feature>
-			</Features>
-		</Entity>
-		<Entity>
-			<Id>4926</Id>
-			<Store>10</Store>
-			<Name>Samsung F24T354FHI</Name>
-			<Price>799</Price>
-			<Type>Monitor</Type>
-			<Features>
-				<Feature>
-					<Name>Resolution</Name>
-					<Description>1920x1080</Description>
-				</Feature>
-				<Feature>
-					<Name>Matrix</Name>
-					<Description>IPS</Description>
-				</Feature>
-			</Features>
-		</Entity>
-	</Entities>
+    <Entities>
+        <Entity>
+            <Id>1000</Id>
+            <Store>10</Store>
+            <Name>Iphone 10</Name>
+            <Price>1299</Price>
+            <Type>Phone</Type>
+            <Features>
+                <Feature>
+                    <Name>Processor</Name>
+                    <Description>M10 6cores 4.1GHz</Description>
+                </Feature>
+                <Feature>
+                    <Name>Camera</Name>
+                    <Description>10MP</Description>
+                </Feature>
+            </Features>
+        </Entity>
+        <Entity>
+            <Id>2051</Id>
+            <Store>20</Store>
+            <Name>Xiaomi Redmi Note 10S</Name>
+            <Price>899</Price>
+            <Type>Phone</Type>
+            <Features>
+                <Feature>
+                    <Name>Processor</Name>
+                    <Description>Mediatek Helio G95 2.1GHz</Description>
+                </Feature>
+                <Feature>
+                    <Name>Camera</Name>
+                    <Description>64MP</Description>
+                </Feature>
+            </Features>
+        </Entity>
+        <Entity>
+            <Id>2151</Id>
+            <Store>5</Store>
+            <Name>Samsung QE55Q60ABU</Name>
+            <Price>3149</Price>
+            <Type>TV</Type>
+            <Features>
+                <Feature>
+                    <Name>Resolution</Name>
+                    <Description>3840x2160 (4K UHD)</Description>
+                </Feature>
+                <Feature>
+                    <Name>Smart TV</Name>
+                    <Description>Yes</Description>
+                </Feature>
+                <Feature>
+                    <Name>Processor</Name>
+                    <Description>4 cores</Description>
+                </Feature>
+            </Features>
+        </Entity>
+        <Entity>
+            <Id>1984</Id>
+            <Store>15</Store>
+            <Name>Sennheiser CX 80S</Name>
+            <Price>59</Price>
+            <Type>Headphones</Type>
+            <Features>
+                <Feature>
+                    <Name>Frequency response(Microphone)</Name>
+                    <Description>100 - 10,000 Hz</Description>
+                </Feature>
+                <Feature>
+                    <Name>Jack plug</Name>
+                    <Description>3.5 mm, angled</Description>
+                </Feature>
+                <Feature>
+                    <Name>Cable length</Name>
+                    <Description>1.2 m, symmetric length</Description>
+                </Feature>
+                <Feature>
+                    <Name>Frequency response</Name>
+                    <Description>17-20,000 Hz (-10 dB)</Description>
+                </Feature>
+            </Features>
+        </Entity>
+        <Entity>
+            <Id>7591</Id>
+            <Store>10</Store>
+            <Name>Xiaomi Mi Monitor</Name>
+            <Price>649</Price>
+            <Type>Monitor</Type>
+            <Features>
+                <Feature>
+                    <Name>Resolution</Name>
+                    <Description>1920x1080</Description>
+                </Feature>
+                <Feature>
+                    <Name>Matrix</Name>
+                    <Description>IPS</Description>
+                </Feature>
+            </Features>
+        </Entity>
+        <Entity>
+            <Id>4926</Id>
+            <Store>10</Store>
+            <Name>Samsung F24T354FHI</Name>
+            <Price>799</Price>
+            <Type>Monitor</Type>
+            <Features>
+                <Feature>
+                    <Name>Resolution</Name>
+                    <Description>1920x1080</Description>
+                </Feature>
+                <Feature>
+                    <Name>Matrix</Name>
+                    <Description>IPS</Description>
+                </Feature>
+            </Features>
+        </Entity>
+    </Entities>
 </root>

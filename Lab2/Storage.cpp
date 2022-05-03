@@ -34,6 +34,7 @@ Storage::Storage(const Storage & storage)
 
 Storage::~Storage()
 {
+	saveStorage("../Lab2/Storage.xml");
 }
 
 void Storage::loadStorage(string path)
@@ -98,6 +99,66 @@ void Storage::loadStorage(string path)
 		}
 	}
 	else throw(exception("WARNING!!! CAN'T LOAD STORAGE"));
+}
+
+void Storage::saveStorage(string path)
+{
+	XMLDocument* doc = new XMLDocument();
+
+	XMLElement* pRootElement = doc->NewElement("root");
+
+	XMLElement* pEntitiesElement = doc->NewElement("Entities");
+
+	doc->InsertFirstChild(pRootElement);
+
+	pRootElement->InsertEndChild(pEntitiesElement);
+
+	for (int i = 0; i < entities.size(); i++)
+	{
+		XMLElement* pEntityElement = doc->NewElement("Entity");
+
+		XMLElement* pIdElement = doc->NewElement("Id");
+		XMLElement* pStoreElement = doc->NewElement("Store");
+		XMLElement* pNameElement = doc->NewElement("Name");
+		XMLElement* pPriceElement = doc->NewElement("Price");
+		XMLElement* pTypeElement = doc->NewElement("Type");
+
+		pIdElement->SetText(entities[i].id);
+		pStoreElement->SetText(entities[i].store);
+		pNameElement->SetText(entities[i].product.getName().c_str());
+		pPriceElement->SetText(entities[i].product.getPrice());
+		pTypeElement->SetText(Product::typeToString(entities[i].product.getType()).c_str());
+
+		pEntityElement->InsertEndChild(pIdElement);
+		pEntityElement->InsertEndChild(pStoreElement);
+		pEntityElement->InsertEndChild(pNameElement);
+		pEntityElement->InsertEndChild(pPriceElement);
+		pEntityElement->InsertEndChild(pTypeElement);
+
+		XMLElement* pFeaturesElement = doc->NewElement("Features");
+
+		for (int j = 0; j < entities[i].product.getCharacteristics().getFeaturesList().size(); j++)
+		{
+			XMLElement* pFeatureElement = doc->NewElement("Feature");
+
+			XMLElement* pFeatureNameElement = doc->NewElement("Name");
+			XMLElement* pFeatureDescriptionElement = doc->NewElement("Description");
+
+			pFeatureNameElement->SetText(entities[i].product.getCharacteristics().getFeaturesList()[j].name.c_str());
+			pFeatureDescriptionElement->SetText(entities[i].product.getCharacteristics().getFeaturesList()[j].description.c_str());
+
+			pFeatureElement->InsertEndChild(pFeatureNameElement);
+			pFeatureElement->InsertEndChild(pFeatureDescriptionElement);
+
+			pFeaturesElement->InsertEndChild(pFeatureElement);
+		}
+
+		pEntityElement->InsertEndChild(pFeaturesElement);
+
+		pEntitiesElement->InsertEndChild(pEntityElement);
+	}
+
+	doc->SaveFile(path.c_str());
 }
 
 const vector<Entity> Storage::getEntities() const

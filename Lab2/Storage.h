@@ -18,6 +18,7 @@ public:
 	~Storage();
 
 	void loadStorage(string path);
+	void saveStorage(string path);
 
 	const vector<Entity> getEntities() const;
 	void setEntities(vector<Entity> ents);
