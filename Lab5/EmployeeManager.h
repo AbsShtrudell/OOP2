@@ -2,6 +2,7 @@
 #include <map>
 #include <list>
 #include <functional>
+#include <algorithm>
 #include "Employee.h"
 
 using namespace std;

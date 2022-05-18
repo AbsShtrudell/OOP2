@@ -1,5 +1,4 @@
 #include "EmployeeManager.h"
-#include <algorithm>
 
 EmployeeManager::EmployeeManager()
 {
@@ -40,13 +39,16 @@ bool EmployeeManager::Contains(int id) const
 
 void EmployeeManager::Sort(const function<bool(const shared_ptr<Employee>&, const shared_ptr<Employee>&)> criteria)
 {
-	sort(sortedEmployees.begin(), sortedEmployees.end(), criteria);
+	sortedEmployees.sort(criteria);
 }
 
 void EmployeeManager::CalculateID(Employee& employee)
 {
 	if (bankEmployees.empty())
+	{
+		employee.setID(0);
 		return;
+	}
 
 	auto it = bankEmployees.end();
 	--it;
@@ -84,42 +86,42 @@ auto EmployeeManager::operator[](int id) const -> const shared_ptr<Employee>&
 	return bankEmployees.at(id);
 }
 
-static bool ByIDAscendingly(const shared_ptr<Employee>& e1, const shared_ptr<Employee>& e2)
+bool EmployeeManager::ByIDAscendingly(const shared_ptr<Employee>& e1, const shared_ptr<Employee>& e2)
 {
 	return e1->getID() < e2->getID();
 }
 
-static bool ByIDDescendingly(const shared_ptr<Employee>& e1, const shared_ptr<Employee>& e2)
+bool EmployeeManager::ByIDDescendingly(const shared_ptr<Employee>& e1, const shared_ptr<Employee>& e2)
 {
 	return e1->getID() > e2->getID();
 }
 
-static bool ByNameAscendingly(const shared_ptr<Employee>& e1, const shared_ptr<Employee>& e2)
+bool EmployeeManager::ByNameAscendingly(const shared_ptr<Employee>& e1, const shared_ptr<Employee>& e2)
 {
 	return e1->getName()[0] < e2->getName()[0];
 }
 
-static bool ByNameDescendingly(const shared_ptr<Employee>& e1, const shared_ptr<Employee>& e2)
+bool EmployeeManager::ByNameDescendingly(const shared_ptr<Employee>& e1, const shared_ptr<Employee>& e2)
 {
 	return e1->getName()[0] > e2->getName()[0];
 }
 
-static bool BySureNameAscendingly(const shared_ptr<Employee>& e1, const shared_ptr<Employee>& e2)
+bool EmployeeManager::BySureNameAscendingly(const shared_ptr<Employee>& e1, const shared_ptr<Employee>& e2)
 {
 	return e1->getSurename()[0] < e2->getSurename()[0];
 }
 
-static bool BySureNameDescendingly(const shared_ptr<Employee>& e1, const shared_ptr<Employee>& e2)
+bool EmployeeManager::BySureNameDescendingly(const shared_ptr<Employee>& e1, const shared_ptr<Employee>& e2)
 {
 	return e1->getSurename()[0] > e2->getSurename()[0];
 }
 
-static bool ByFeeAscendingly(const shared_ptr<Employee>& e1, const shared_ptr<Employee>& e2)
+bool EmployeeManager::ByFeeAscendingly(const shared_ptr<Employee>& e1, const shared_ptr<Employee>& e2)
 {
 	return e1->getFee() < e2->getFee();
 }
 
-static bool ByFeeDescendingly(const shared_ptr<Employee>& e1, const shared_ptr<Employee>& e2)
+bool EmployeeManager::ByFeeDescendingly(const shared_ptr<Employee>& e1, const shared_ptr<Employee>& e2)
 {
 	return e1->getFee() > e2->getFee();
 }
