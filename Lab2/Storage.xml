@@ -114,5 +114,13 @@
                 </Feature>
             </Features>
         </Entity>
+        <Entity>
+            <Id>12</Id>
+            <Store>-858993460</Store>
+            <Name>f</Name>
+            <Price>13</Price>
+            <Type>None</Type>
+            <Features/>
+        </Entity>
     </Entities>
 </root>
