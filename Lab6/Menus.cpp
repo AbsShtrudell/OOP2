@@ -7,8 +7,8 @@ void MainMenu()
 	ItemList items;
 	int choice;
 
-	items.Add("ÀÖÖ Ëîíã", "Ìóêîëèòè÷åñêîå ñðåäñòâî", 2);
-	items.Add("Àíçèáåë", "Àíòèñåïòèê", 5);
+	items.Add("Вещь1", "тип", 2);
+	items.Add("Вещь2", "тип", 5);
 
 	while (true)
 	{
@@ -16,11 +16,11 @@ void MainMenu()
 		(
 			system("cls");
 		std::cout
-			<< "1. Ïîêàçàòü ëåêàðñòâà\n"
-			<< "2. Äîáàâèòü ëåêàðñòâî\n"
-			<< "3. Óäàëèòü ëåêàðñòâî\n"
-			<< "4. Èçìåíèòü ëåêàðñòâî\n"
-			<< "0. Âûõîä\n",
+			<< "1. Показать\n"
+			<< "2. Добавить\n"
+			<< "3. Убрать\n"
+			<< "4. Изменить\n"
+			<< "0. Выход\n",
 			choice
 			);
 
@@ -33,13 +33,13 @@ void MainMenu()
 			std::cin.get();
 			break;
 		case 2:
-			AddDrugTask(items);
+			AddItemTask(items);
 			break;
 		case 3:
-			RemoveDrugTask(items);
+			RemoveItemTask(items);
 			break;
 		case 4:
-			ChangeDrugTask(items);
+			ChangeItemTask(items);
 			break;
 		case 0:
 			return;
@@ -48,20 +48,20 @@ void MainMenu()
 
 }
 
-void AddDrugTask(ItemList& items)
+void AddItemTask(ItemList& items)
 {
 	std::string name, type;
 	int amount;
 
-	std::cout << "Ââåäèòå íàçâàíèå: ";
+	std::cout << "Введите название: ";
 	std::getline(std::cin, name);
 
-	std::cout << "Ââåäèòå òèï: ";
+	std::cout << "Введите тип: ";
 	std::getline(std::cin, type);
 
 	INPUT_CONDITION
 	(
-		std::cout << "Ââåäèòå êîëè÷åñòâî: ",
+		std::cout << "Введите количество: ",
 		amount,
 		amount >= 0
 	);
@@ -69,28 +69,28 @@ void AddDrugTask(ItemList& items)
 	items.Add(name, type, amount);
 }
 
-void RemoveDrugTask(ItemList& items)
+void RemoveItemTask(ItemList& items)
 {
 	int id;
 
 	INPUT
 	(
 		system("cls");
-	std::cout << "Ââåäèòå ÈÄ ëåêàðñòâà: ",
+	std::cout << "Введите ID предмета: ",
 		id
 		);
 
 	items.Remove(id);
 }
 
-void ChangeDrugTask(ItemList& items)
+void ChangeItemTask(ItemList& items)
 {
 	int choice;
 
 	INPUT
 	(
 		system("cls");
-	std::cout << "Ââåäèòå ÈÄ ëåêàðñòâà: ",
+	std::cout << "Введите ID предмета: ",
 		choice
 		);
 
@@ -109,7 +109,7 @@ void ChangeDrugTask(ItemList& items)
 		INPUT
 		(
 			system("cls");
-		ShowDrug(*item.value());
+		ShowItem(*item.value());
 		std::cout
 			<< "1. Èçìåíèòü íàçâàíèå\n"
 			<< "2. Èçìåíèòü òèï\n"
@@ -154,7 +154,7 @@ void ChangeDrugTask(ItemList& items)
 	}
 }
 
-void ShowDrug(const Item& item)
+void ShowItem(const Item& item)
 {
 	std::cout
 		<< "ÈÄ: " << item.GetID() << std::endl
