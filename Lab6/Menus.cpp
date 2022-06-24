@@ -7,8 +7,8 @@ void MainMenu()
 	ItemList items;
 	int choice;
 
-	items.Add("ÀÖÖ Ëîíã", "Ìóêîëèòè÷åñêîå ñðåäñòâî", 2);
-	items.Add("Àíçèáåë", "Àíòèñåïòèê", 5);
+	items.Add("GTX 1660", "Видеокарта", 2);
+	items.Add("Philips 19", "Монитор", 5);
 
 	while (true)
 	{
@@ -16,11 +16,11 @@ void MainMenu()
 		(
 			system("cls");
 		std::cout
-			<< "1. Ïîêàçàòü ëåêàðñòâà\n"
-			<< "2. Äîáàâèòü ëåêàðñòâî\n"
-			<< "3. Óäàëèòü ëåêàðñòâî\n"
-			<< "4. Èçìåíèòü ëåêàðñòâî\n"
-			<< "0. Âûõîä\n",
+			<< "1. Показать\n"
+			<< "2. Добавить\n"
+			<< "3. Удалить\n"
+			<< "4. Редактировать\n"
+			<< "0. Выход\n",
 			choice
 			);
 
@@ -53,15 +53,15 @@ void AddDrugTask(ItemList& items)
 	std::string name, type;
 	int amount;
 
-	std::cout << "Ââåäèòå íàçâàíèå: ";
+	std::cout << "Введите название: ";
 	std::getline(std::cin, name);
 
-	std::cout << "Ââåäèòå òèï: ";
+	std::cout << "Введите тип: ";
 	std::getline(std::cin, type);
 
 	INPUT_CONDITION
 	(
-		std::cout << "Ââåäèòå êîëè÷åñòâî: ",
+		std::cout << "Введите кол-во: ",
 		amount,
 		amount >= 0
 	);
@@ -76,7 +76,7 @@ void RemoveDrugTask(ItemList& items)
 	INPUT
 	(
 		system("cls");
-	std::cout << "Ââåäèòå ÈÄ ëåêàðñòâà: ",
+	std::cout << "Введите ид: ",
 		id
 		);
 
@@ -90,7 +90,7 @@ void ChangeDrugTask(ItemList& items)
 	INPUT
 	(
 		system("cls");
-	std::cout << "Ââåäèòå ÈÄ ëåêàðñòâà: ",
+	std::cout << "Введите ид: ",
 		choice
 		);
 
@@ -98,7 +98,7 @@ void ChangeDrugTask(ItemList& items)
 
 	if (!item.has_value())
 	{
-		std::cout << "Òàêîãî ëåêàðñòâà íåò\n";
+		std::cout << "Ошибка\n";
 		std::cin.get();
 		return;
 	}
@@ -111,10 +111,10 @@ void ChangeDrugTask(ItemList& items)
 			system("cls");
 		ShowDrug(*item.value());
 		std::cout
-			<< "1. Èçìåíèòü íàçâàíèå\n"
-			<< "2. Èçìåíèòü òèï\n"
-			<< "3. Èçìåíèòü êîëè÷åñòâî\n"
-			<< "0. Âûõîä\n",
+			<< "1. Название\n"
+			<< "2. Тип\n"
+			<< "3. Кол-во\n"
+			<< "0. Выход\n",
 			choice
 			);
 
@@ -123,14 +123,14 @@ void ChangeDrugTask(ItemList& items)
 		switch (choice)
 		{
 		case 1:
-			std::cout << "Ââåäèòå íàçâàíèå: ";
+			std::cout << "Введите название: ";
 			std::getline(std::cin, temp);
 
 			item.value()->SetName(temp);
 
 			break;
 		case 2:
-			std::cout << "Ââåäèòå òèï: ";
+			std::cout << "Введите тип: ";
 			std::getline(std::cin, temp);
 
 			item.value()->SetType(temp);
@@ -140,7 +140,7 @@ void ChangeDrugTask(ItemList& items)
 			INPUT_CONDITION
 			(
 				system("cls");
-			std::cout << "Ââåäèòå êîëè÷åñòâî: ",
+			std::cout << "Введите кол-во: ",
 				choice,
 				choice >= 0
 				);
@@ -157,8 +157,8 @@ void ChangeDrugTask(ItemList& items)
 void ShowDrug(const Item& item)
 {
 	std::cout
-		<< "ÈÄ: " << item.GetID() << std::endl
-		<< "Íàçâàíèå: " << item.GetName() << std::endl
-		<< "Òèï: " << item.GetType() << std::endl
-		<< "Êîëè÷åñòâî: " << item.GetType() << std::endl << std::endl;
+		<< "ид: " << item.GetID() << std::endl
+		<< "название: " << item.GetName() << std::endl
+		<< "тип: " << item.GetType() << std::endl
+		<< "кол-во: " << item.GetType() << std::endl << std::endl;
 }
