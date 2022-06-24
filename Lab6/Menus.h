@@ -5,11 +5,11 @@ class ItemList;
 
 void MainMenu();
 
-void AddDrugTask(ItemList& items);
+void AddItemTask(ItemList& items);
 
-void RemoveDrugTask(ItemList& items);
+void RemoveItemTask(ItemList& items);
 
-void ChangeDrugTask(ItemList& items);
+void ChangeItemTask(ItemList& items);
 
-void ShowDrug(const Item& items);
+void ShowItem(const Item& items);
 
